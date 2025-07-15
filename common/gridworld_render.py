@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
-
+from common.utils import adaptive_plt_show
 
 class Renderer:
     def __init__(self, reward_map, goal_state, wall_state):
@@ -85,7 +85,8 @@ class Renderer:
 
                 if state == self.wall_state:
                     ax.add_patch(plt.Rectangle((x,ys-y-1), 1, 1, fc=(0.4, 0.4, 0.4, 1.)))
-        plt.show()
+        # plt.show()
+        adaptive_plt_show()
 
     def render_q(self, q, show_greedy_policy=True):
         self.set_figure()
@@ -147,7 +148,8 @@ class Renderer:
 
                         offset= offset_map[action]
                         ax.text(tx+offset[0], ty+offset[1], "{:12.2f}".format(tq))
-        plt.show()
+        # plt.show()
+        adaptive_plt_show()
 
         if show_greedy_policy:
             policy = {}

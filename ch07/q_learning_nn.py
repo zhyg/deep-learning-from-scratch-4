@@ -6,7 +6,7 @@ from dezero import optimizers
 import dezero.functions as F
 import dezero.layers as L
 from common.gridworld import GridWorld
-
+from common.utils import adaptive_plt_show
 
 def one_hot(state):
     HEIGHT, WIDTH = 3, 4
@@ -96,7 +96,8 @@ for episode in range(episodes):
 plt.xlabel('episode')
 plt.ylabel('loss')
 plt.plot(range(len(loss_history)), loss_history)
-plt.show()
+# plt.show()
+adaptive_plt_show()
 
 # visualize
 Q = {}

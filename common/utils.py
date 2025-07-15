@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import inspect
+from datetime import datetime
 
 
 def argmax(xs):
@@ -54,8 +55,14 @@ def adaptive_plt_show(save_path=None, dpi=150, bbox_inches='tight', **kwargs):
             caller_frame = inspect.currentframe().f_back
             caller_file = caller_frame.f_globals['__file__']
             caller_dir = os.path.dirname(caller_file)
+            # 获取项目根目录（common文件夹的父目录）
+            current_file_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(current_file_dir)
+            images_dir = os.path.join(project_root, 'images')
+            os.makedirs(images_dir, exist_ok=True)
             script_name = os.path.splitext(os.path.basename(caller_file))[0]
-            save_path = os.path.join(caller_dir, f'{script_name}.png')
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S_%f')[:-3]  # 毫秒级精度
+            save_path = os.path.join(images_dir, f'{script_name}_{timestamp}.png')
         
         plt.savefig(save_path, dpi=dpi, bbox_inches=bbox_inches, **kwargs)
         print(f"图像已保存到: {save_path}")

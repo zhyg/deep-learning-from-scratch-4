@@ -4,6 +4,7 @@ from dezero import Model
 from dezero import optimizers
 import dezero.layers as L
 import dezero.functions as F
+from common.utils import adaptive_plt_show
 
 # Dataset
 np.random.seed(0)
@@ -46,4 +47,5 @@ plt.ylabel('y')
 t = np.arange(0, 1, .01)[:, np.newaxis]
 y_pred = model(t)
 plt.plot(t, y_pred.data, color='r')
-plt.show()
+# plt.show()
+adaptive_plt_show()
