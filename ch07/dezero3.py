@@ -2,8 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from dezero import Variable
 import dezero.functions as F
+from common.utils import adaptive_plt_show
 
-# トイ・データセット
+# 玩具数据集
 np.random.seed(0)
 x = np.random.rand(100, 1)
 y = 5 + 2 * x + np.random.rand(100, 1)
@@ -48,4 +49,5 @@ plt.ylabel('y')
 t = np.arange(0, 1, .01)[:, np.newaxis]
 y_pred = predict(t)
 plt.plot(t, y_pred.data, color='r')
-plt.show()
+# plt.show()
+adaptive_plt_show()
