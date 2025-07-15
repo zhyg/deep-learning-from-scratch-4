@@ -1,0 +1,12 @@
+[project]
+name = "deep-learning-from-scratch-4"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9,<3.10"
+dependencies = [
+    "dezero>=0.0.13",
+    "gym>=0.26.2",
+    "matplotlib<=3.6",
+    "numpy<1.20",
+]
