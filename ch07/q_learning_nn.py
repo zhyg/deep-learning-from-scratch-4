@@ -53,6 +53,7 @@ class QLearningAgent:
         else:
             next_qs = self.qnet(next_state)
             next_q = next_qs.max(axis=1)
+            # 将 next_q 从计算图中分离, 目标值不参与梯度计算
             next_q.unchain()
 
         target = self.gamma * next_q + reward

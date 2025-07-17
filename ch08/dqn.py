@@ -8,7 +8,7 @@ from dezero import Model
 from dezero import optimizers
 import dezero.functions as F
 import dezero.layers as L
-
+from common.utils import adaptive_plt_show
 
 class ReplayBuffer:
     def __init__(self, buffer_size, batch_size):
@@ -124,7 +124,7 @@ for episode in range(episodes):
 plt.xlabel('Episode')
 plt.ylabel('Total Reward')
 plt.plot(range(len(reward_history)), reward_history)
-plt.show()
+adaptive_plt_show()
 
 
 # === Play CartPole ===
